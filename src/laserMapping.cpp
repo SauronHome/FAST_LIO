@@ -1169,11 +1169,9 @@ int main(int argc, char** argv)
     if (pcl_wait_save->size() > 0 && pcd_save_en)
     {
         cout << "Saving map to " << map_file_path << endl;
-        string file_name = string("scans.pcd");
-        string all_points_dir(string(string(ROOT_DIR) + "PCD/") + file_name);
         pcl::PCDWriter pcd_writer;
-        cout << "current scan saved to /PCD/" << file_name<<endl;
-        pcd_writer.writeBinary(all_points_dir, *pcl_wait_save);
+        cout << "Current scan saved to " << map_file_path << endl;
+        pcd_writer.writeBinary(map_file_path, *pcl_wait_save);
     }
 
     if (runtime_pos_log)
